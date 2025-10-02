@@ -4,8 +4,13 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Page({ params }: any) {
-  const post: BlogPost = await getPostBySlug(params.slug);
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post: BlogPost = await getPostBySlug(slug);
 
   return (
     <main className="p-8 max-w-3xl mx-auto">
