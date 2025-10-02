@@ -5,12 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface PageProps {
-  params: {
-    slug: string;
-  };
+  params: { slug: string };
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: PageProps) {
   const post: BlogPost = await getPostBySlug(params.slug);
 
   return (
