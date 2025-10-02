@@ -4,11 +4,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Image from "next/image";
 import Link from "next/link";
 
-interface PageProps {
-  params: { slug: string };
-}
-
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params }: any) {
   const post: BlogPost = await getPostBySlug(params.slug);
 
   return (
